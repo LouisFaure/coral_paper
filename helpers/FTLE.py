@@ -7,7 +7,6 @@ import math
 from matplotlib import pyplot
 import time
 import sys
-from p_tqdm import p_map
 import numba
 
 @numba.jit
