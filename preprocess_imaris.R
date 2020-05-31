@@ -5,22 +5,6 @@ library(logging)
 options(warn=-1)
 basicConfig()
 
-buildvec=function(i){
-    vect <- vector()
-    for (j in alltracks[alltracks$Time==i,]$Parent){
-    one=alltracks[alltracks$Time==i & alltracks$Parent==j,1:2]
-    one=one[!is.na(one[,1]),]
-    if (dim(one)[1]!=0 & !is.na(j)){
-
-      plusone=alltracks[alltracks$Time==i+1 & alltracks$Parent==j,1:2]
-      plusone=plusone[!is.na(plusone[,1]),]
-      if (dim(plusone)[1]==0){}
-      else{vect=rbind(vect,cbind(one,one-plusone))}
-    }
-    }
-    return(vect)
-}
-
 gatherdat=function(fil){
     dataset <- read_csv(fil[1],skip = 3,col_types=cols())
     
@@ -69,14 +53,6 @@ for (d in l){
     
     write.csv(alltracks_tocsv,paste0(d,"/all_tracks.csv"))
     
-    loginfo(paste0("Building vector data on ",
-                   max(alltracks$Time)-min(alltracks$Time),
-                   " timepoints using ",detectCores()/2," cores"))
-    pb = txtProgressBar(min = min(alltracks$Time), max = max(alltracks$Time), initial = min(alltracks$Time)) 
-    vect=do.call(rbind,pbmclapply(min(alltracks$Time):max(alltracks$Time),buildvec,
-                                  mc.cores=detectCores()/2,
-                                  ignore.interactive=TRUE))
-    write.csv(vect,paste0(d,"/all_vectors.csv"))
 }
 
 
