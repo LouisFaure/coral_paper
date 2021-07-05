@@ -162,8 +162,9 @@ def process_tracks(rep):
     compil.reset_index(drop=True,inplace=True)
     torem=[]
     for col in compil.columns:
-        torem=torem+[np.argwhere(np.isnan(compil[col]))]
-    compil.drop(np.unique(np.concatenate(torem)),inplace=True) 
+        torem=torem+np.argwhere(np.isnan(compil[col]).values).tolist()
+        
+    compil.drop(np.unique(np.array(torem)),inplace=True) 
     
     logging.info("replicate "+str(rep)+": Making plots")
     ret = stats.binned_statistic_2d(compil["Position X"], 
@@ -227,4 +228,3 @@ if __name__ == "__main__":
     logging.info("Running parallel analysis")
     with Pool(len(imgs)) as p:
         p.map(process_tracks, range(len(imgs)))
-    
