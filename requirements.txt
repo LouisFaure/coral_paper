@@ -1,5 +1,5 @@
 numba==0.52.0
-numpy==1.19.5
+numpy==1.21.0
 scipy==1.4.1
 pandas==1.2.4
 statsmodels==0.12.0
