@@ -182,7 +182,7 @@ def plot_neuro(res,title):
 
 
 if __name__ == "__main__":
-    path = "Neuro_Data/Pavona_d/"
+    path = sys.argv[1]
     df=pd.DataFrame({"filename":next(os.walk(path))[1]})
 
     df[['Date','Specie','Cond','treatment','timepoint']]=df.filename.str.split("_",expand=True)
