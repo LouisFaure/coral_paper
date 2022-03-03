@@ -3,6 +3,7 @@ on:
     paths:
       - '*.ipynb'
       - '*.py'
+      - '*.yml'
 name: Count Lines
 
 
@@ -17,7 +18,7 @@ jobs:
       - name: Count lines
         run: |
           mkdir -p output
-          export pycounts=$(cat *.py | grep -v ^$ | wc -l)
+          export pycounts=$(cat *.py */*.py | grep -v ^$ | wc -l)
           export ipycounts=$(jq '.cells[] | select(.cell_type == "code") .source[]' *.ipynb | grep -v '"\\n"' | wc -l)
           export counts=$(bc <<< $pycounts+$ipycounts)
           if (($counts > 1100)); then echo $(bc <<< "scale=1;$counts/1000")K; else echo $counts; fi | xargs -I{} wget https://img.shields.io/badge/Lines%20of%20Code-{}-blue -O output/badge.svg

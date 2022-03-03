@@ -1,5 +1,8 @@
 # coral_paper
 
+[![Line count](https://raw.githubusercontent.com/LouisFaure/coral_paper/linecount/badge.svg)](https://github.com/LouisFaure/coral_paper/actions/workflows/linecount.yml)
+![DOI](https://img.shields.io/badge/DOI-unpublished-red)
+
 Code for reproducibility of 2D track analysis on several coral species, run the following code on a linux machine with python installed:
 
 ```bash
