@@ -20,7 +20,7 @@ tar xvf tracks.tar.gz
 # Run analysis
 for f in Track_Data_processed/*; do
     echo $f
-	python -W ignore analysis_tracks.py $f
+    python -W ignore analysis_tracks.py "$f"
 done
 ```
 
@@ -49,7 +49,7 @@ tar xvf neuro_tracks.tar.gz
 # Run analysis
 for f in Neuro_Data_processed/*; do
     echo $f
-	python -W ignore neuro_analysis.py $f
+    python -W ignore neuro_analysis.py "$f"
 done
 ```
 
