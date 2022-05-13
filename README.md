@@ -1,7 +1,9 @@
 # coral_paper
 
 [![Line count](https://raw.githubusercontent.com/LouisFaure/coral_paper/linecount/badge.svg)](https://github.com/LouisFaure/coral_paper/actions/workflows/linecount.yml)
-![DOI](https://img.shields.io/badge/DOI-unpublished-red)
+[![DOI](https://img.shields.io/badge/DOI-10.1016/j.cub.2022.04.054-blue)](https://doi.org/10.1016/j.cub.2022.04.054)
+[![Figshare](https://img.shields.io/badge/data-10.6084/m9.figshare.13143668.v5-green)](https://doi.org/10.6084/m9.figshare.13143668.v5)
+
 
 Code for reproducibility of 2D track analysis on several coral species, run the following code on a linux machine with python installed:
 
@@ -41,7 +43,7 @@ plt.imshow(im)
 
 ### UMAP and clustering analyis
 
-Run the following notebook:
+Run the [following notebook](https://github.com/LouisFaure/coral_paper/blob/master/UMAP_clustering_analysis.ipynb).
 
 ## Neurotransmitter analysis
 
@@ -63,4 +65,4 @@ wget https://figshare.com/ndownloader/files/34277333--output-document revision_s
 tar xvf revision_stat_processed.tar.gz
 ```
 
-Then run the following notebook:
+Then run the [following notebook](https://github.com/LouisFaure/coral_paper/blob/master/Process_revision.ipynb).
